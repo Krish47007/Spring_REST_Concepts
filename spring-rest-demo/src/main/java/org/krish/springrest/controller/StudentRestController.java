@@ -46,12 +46,12 @@ public class StudentRestController {
 
     //Add an exception handler using @ExceptionHandler
 
-    /*
+/*    *//*
      *
      * @ExceptionHandler - tells Spring that this method is an exception handler.
      * ResponseEntity<StudentErrorResponse> - type of the response body.
      * StudentNotFoundException -   is the exception type to catch
-     */
+     *//*
     @ExceptionHandler
     public ResponseEntity<StudentErrorResponse> handleException(StudentNotFoundException e)
     {
@@ -75,5 +75,5 @@ public class StudentRestController {
         error.setTimestamp(System.currentTimeMillis());
 
         return new ResponseEntity<StudentErrorResponse>(error,HttpStatus.BAD_REQUEST);
-    }
+    }*/
 }
