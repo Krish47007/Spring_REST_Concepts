@@ -64,4 +64,16 @@ public class StudentRestController {
         return new ResponseEntity<>(error,HttpStatus.NOT_FOUND);    //Jackson will automatically convert StudentErrorResponse POJO and
                                                                     // convert to JSON.
     }
+
+    //Generic exception handler for all exception for Student API
+    @ExceptionHandler
+    public ResponseEntity<StudentErrorResponse> handleException(Exception e)
+    {
+        StudentErrorResponse error = new StudentErrorResponse();
+        error.setMessage(e.getMessage());
+        error.setStatus(HttpStatus.BAD_REQUEST.value());
+        error.setTimestamp(System.currentTimeMillis());
+
+        return new ResponseEntity<StudentErrorResponse>(error,HttpStatus.BAD_REQUEST);
+    }
 }
